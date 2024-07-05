@@ -1,8 +1,11 @@
 use std::io; //User input library
+use rand::Rng;
 
 fn main() {
     
     println!("Please guess a number");
+
+    let secret_number = rand::thread_rng().gen_range(1..=100); //thread_rng runs on this thread, range 1 to 100 inclusive
 
     let mut guess = String::new(); //mutable empty string so we can change it later
 
@@ -12,6 +15,7 @@ fn main() {
 
     //io::stdin().read_line(&mut guess).expect("Failed to read line"); an alternative to the above line
 
-    println!("You guessed: {guess}"); //Print guess
-    
+    print!("\nYou guessed: {guess}"); //Print guess
+    print!("The secret number is: {secret_number}\n");
+
 }
