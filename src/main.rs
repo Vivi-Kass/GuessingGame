@@ -1,6 +1,6 @@
 use std::io; //User input library
 use rand::Rng;
-use std::cmp::Ordering;
+//use std::cmp::Ordering;
 
 fn main() {
     
@@ -23,11 +23,29 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
-    
-    
+
         println!("\nYou guessed: {guess}"); //Print guess
+
+        if guess > secret_number
+        {
+            println!("Too big!\n");
+        }
+        else if guess < secret_number
+        {
+            println!("Too small!\n");
+        }
+        else
+        {
+            println!("You win!\n");
+            break;    
+        }
+
+    
+    
+        
         //println!("The secret number is: {secret_number}");
     
+        /* old code from The Book
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!\n"),
             Ordering::Greater => println!("Too big!\n"),
@@ -36,6 +54,7 @@ fn main() {
                 break;
             }
         };
+        */
 
     }
 
